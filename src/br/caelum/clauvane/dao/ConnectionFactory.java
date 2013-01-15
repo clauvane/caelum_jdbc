@@ -19,8 +19,11 @@ public class ConnectionFactory {
 	public Connection getConnection(){
 		Connection connetion = null;
 		try {
+			Class.forName("com.mysql.jdbc.Driver");
 			connetion =  DriverManager.getConnection("jdbc:mysql://localhost/caelumfj21","root","");
 		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
 		
